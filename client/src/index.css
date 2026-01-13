@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Educational Blue Theme - Trustworthy & Calm */
+  --background: 210 40% 98%;
+  --foreground: 222 47% 11%;
+  
+  --primary: 217 91% 60%; /* Bright Blue */
+  --primary-foreground: 210 40% 98%;
+  
+  --secondary: 210 40% 96%;
+  --secondary-foreground: 222 47% 11%;
+  
+  --muted: 210 40% 90%;
+  --muted-foreground: 215 16% 47%;
+  
+  --accent: 199 89% 48%; /* Teal accent */
+  --accent-foreground: 210 40% 98%;
+  
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 210 40% 98%;
+  
+  --border: 214 32% 91%;
+  --input: 214 32% 91%;
+  --ring: 217 91% 60%;
+  
+  --radius: 1rem;
+
+  /* Font Configuration */
+  --font-sans: 'Sarabun', sans-serif;    /* Readable Thai body text */
+  --font-display: 'Prompt', sans-serif;  /* Modern Thai display text */
+  --font-thai: 'Sarabun', sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-primary/20 selection:text-primary-foreground;
+    font-family: var(--font-sans);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply font-bold tracking-tight text-slate-800;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-muted-foreground/20 rounded-full hover:bg-muted-foreground/40 transition-colors;
+}
+
+/* Glassmorphism Utilities */
+.glass-panel {
+  @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-xl;
+}
+
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
+}
